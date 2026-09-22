@@ -30,4 +30,12 @@ def say_hi():
 
 say_hi()
 
+class logger(object):
 
+    def __init__(self, original_func):
+        self.original_func = original_func
+
+    def __call__(self, *args, **kwags):
+        print(f"{self.original_func.__name__}")
+
+        self.original_func(*args,**kwags)
